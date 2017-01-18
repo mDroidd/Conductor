@@ -1000,6 +1000,7 @@ public abstract class Controller {
 
     private void restoreViewState(@NonNull View view) {
         if (viewState != null) {
+            viewState.setClassLoader(getActivity().getClass().getClassLoader());
             view.restoreHierarchyState(viewState.getSparseParcelableArray(KEY_VIEW_STATE_HIERARCHY));
             onRestoreViewState(view, viewState.getBundle(KEY_VIEW_STATE_BUNDLE));
 
